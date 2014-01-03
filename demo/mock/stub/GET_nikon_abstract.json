@@ -1,0 +1,32 @@
+{
+    "status": 200,
+    "data": {
+        "aostatus": 0,
+        "reqid": 3559,
+        "absresitems": [{
+            "status": 0,
+            "hasproblem": 1,
+            "optmd5": 303,
+            "opttime": 1385459699100,
+            "data": {
+                "isnew": "true",
+                "globalId": 1385459699100
+            },
+            "compData": [{
+                "startype": 1,
+                "count": 2,
+                "word_cnt_11": 11,
+                "word_cnt_12": 12,
+                "word_cnt_13": 13
+            }, {
+                "startype": 2,
+                "count": 3,
+                "word_cnt_21": 21,
+                "word_cnt_23": 23
+            }],
+            "opttypeid": 303
+        }]
+    },
+    "error": {},
+    "timeout": 1500
+}
