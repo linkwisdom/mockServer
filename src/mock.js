@@ -1,3 +1,8 @@
+/**
+ * mock 读取mock文件；并且使用runjs执行改文件
+ * 
+ * @type {[type]}
+ */
 var vm = require('vm');
 var fs = require('fs');
 var url = require('url');
@@ -17,6 +22,14 @@ function getStub(path, param) {
     };
 }
 
+/**
+ * 执行代码
+ * 
+ * @param  {[type]} code  [description]
+ * @param  {[type]} path  [description]
+ * @param  {[type]} param [description]
+ * @return {[type]}       [description]
+ */
 function runJS(code, path, param) {
     var stub = getStub(path, param);
 
@@ -49,6 +62,12 @@ function runJS(code, path, param) {
     }
 };
 
+/**
+ * 通过pathname获得mock内容
+ * 
+ * @param  {[type]} pathname [description]
+ * @return {[type]}          [description]
+ */
 function getMockContent(pathname) {
     var parts = /(GET|MOD|DEL)\/(\w+)\/(\w+)/g.exec(fileName);
     var fileName = pathname + '.js';
@@ -66,6 +85,7 @@ function getMockContent(pathname) {
 
 /**
  * 获得ajax-mock请求数据
+ * 
  */
 function getMockResult(pathname, param) {
     if ('string' == typeof param) {
@@ -85,6 +105,7 @@ function getMockResult(pathname, param) {
     return data;
 };
 
+// 读取文件
 function readFile(filePath) {
     var content = '';
     if (fs.existsSync(filePath)) {
@@ -93,6 +114,7 @@ function readFile(filePath) {
     return content;
 }
 
+// 验证请求
 function validate(req, res, next) {
 
     var param = req.query.param
@@ -109,6 +131,12 @@ function validate(req, res, next) {
     }
 };
 
+/** 
+ * mock服务， 依赖请求获得参数
+ * @param  {[type]} request  [description]
+ * @param  {[type]} response [description]
+ * @return {[type]}          [description]
+ */
 function mockService(request, response) {
     var query = url.parse(request.url, true).query;
     var result = {};

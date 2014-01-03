@@ -9,8 +9,7 @@ var path = require('path');
 var http = require('http');
 var connect = require('connect');
 
-var getMockList = require('./getMockList');
-var mockService = require('./mockService');
+var mock = require('./mock');
 var debugLoad = require('./debugLoad');
 
 var db = require('./db');
@@ -41,15 +40,15 @@ exports.start = function(param) {
     app.use('/request.ajax', connect.bodyParser());
 
     // validation
-    // app.use('/request.ajax', mockService.validate(config));
+    // app.use('/request.ajax', mock.validate(config));
 
     // service
-    app.use('/request.ajax', mockService.serve(config));
+    app.use('/request.ajax', mock.serve(config));
 
     // wrapper
-    app.use('/request.ajax', function(req, res, next) {
-        // 在这里对结果进行封装
-    });
+    // app.use('/request.ajax', function(req, res, next) {
+    //     // 在这里对结果进行封装
+    // });
 
     // 打包前端文件
     app.use('/mock', debugLoad(config));
