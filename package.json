@@ -1,0 +1,35 @@
+{
+    "author": "liandong liu",
+    "name": "mockServer",
+    "description": "mock Server",
+    "version": "0.0.1",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/linkwisdom/mockServer.git"
+    },
+    "main": "./src/index.js",
+    "cli": "./cli.js",
+    "bin": {
+        "ms": "node ./cli start",
+        "mockServer": "node ./cli"
+    },
+    "keywords": [
+        "mock",
+        "proxy",
+        "reverse",
+        "edp"
+    ],
+    "dependencies": {
+        "http-proxy": ">=0.10"
+    },
+    "engines": {
+        "node": "*"
+    },
+    "gitHead": "57769f6d041f75486c72224fece6791db0e7f40b",
+    "scripts": {
+        "start": "node ./cli",
+        "test": "node test.js"
+    },
+    "license": "BSD",
+    "readmeFilename": "README.md"
+}
